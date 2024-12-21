@@ -11,9 +11,12 @@ interface LoginForm {
   username: string;
   password: string;
 }
+interface AuthContextType {
+  saveUserData: () => void;
+}
 
 export default function Login() {
-  let { saveUserData }:any = useContext(AuthContext);
+  let { saveUserData } = useContext(AuthContext) as AuthContextType;
   let [password, setPassword] = useState(true);
   let {
     register,

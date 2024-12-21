@@ -36,22 +36,14 @@ export default function AddUser() {
   let onSubmit = async (data: AddUserList) => {
     try {
       if (id) {
-        let response = await axios.put(
-          `https://dummyjson.com/users/${id}`,
-          data
-        );
+        await axios.put(`https://dummyjson.com/users/${id}`, data);
         toast.success("Update User Successfully");
         navigate("/user/userList");
-        // console.log(response);
         console.log(id);
       } else {
-        let response = await axios.post(
-          `https://dummyjson.com/users/add`,
-          data
-        );
+        await axios.post(`https://dummyjson.com/users/add`, data);
         toast.success("Add User Successfully");
         navigate("/user/userList");
-        // console.log(response);
       }
     } catch (error) {
       toast.error("Error!");
@@ -59,8 +51,8 @@ export default function AddUser() {
   };
 
   let getUserById = async () => {
-    let rseponse = await axios.get(`https://dummyjson.com/users/${id}`);
-    setUserData(rseponse.data);
+    let { data } = await axios.get(`https://dummyjson.com/users/${id}`);
+    setUserData(data);
   };
 
   useEffect(() => {

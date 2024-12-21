@@ -27,7 +27,7 @@ interface Address {
 export default function Users() {
   // Loading
   let [loading, setLoading] = useState(false);
-  let [users, setUsers] = useState([]);
+  let [users, setUsers] = useState<UserList[]>([]);
   let getUsers = async () => {
     try {
       setLoading(true);
@@ -46,8 +46,8 @@ export default function Users() {
   // Delete User
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  let [userId, setUserId] = useState(0);
-  let [userData, setUserData]: any = useState({});
+  let [userId, setUserId] = useState<number | null>(null);
+  let [userData, setUserData] = useState<any>({});
   const handleShow = (user: UserList) => {
     setShow(true);
     setUserId(user.id);
