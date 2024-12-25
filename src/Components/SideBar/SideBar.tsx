@@ -12,6 +12,7 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import profile from "../../assets/images/profile.png";
 import { AuthContext } from "../Context/AuthContext";
+import { AuthContextTypeUser } from "../Shared/Models/User";
 
 export default function SideBar() {
   let [collapsed, setCollapsed] = useState(false);
@@ -20,59 +21,75 @@ export default function SideBar() {
     setCollapsed(!collapsed);
   };
 
-  let {userData} = useContext(AuthContext)
+  let { userData } = useContext(AuthContext) as AuthContextTypeUser;
 
   return (
     <>
-        <Sidebar collapsed={collapsed} className={`vh-100  ${sidebarStyle.sideBg}`}>
-          {collapsed ? (
-            <div className="d-flex flex-column align-items-center">
-              <p className="ms-3 mt-2 loginText ps-1">UMS</p>
-              <FaRegArrowAltCircleRight
-                size={25}
-                onClick={toggleSidebar}
-                className="mb-2 inputCursor"
-              />
-            </div>
-          ) : (
-            <div className="d-flex justify-content-between">
-              <p className="ms-3 mt-2 loginText p-1">UMS</p>
-              <FaRegArrowAltCircleLeft
-                size={25}
-                onClick={toggleSidebar}
-                className="me-1 mt-3 inputCursor"
-              />
-            </div>
-          )}
-          <div className="text-center">
-            <img src={userData?.image} alt="profile" className="rounded-circle w-50" />
-            <h5>{userData?.firstName} {userData?.lastName}</h5>
-            <h6 className="bgText">Admin</h6>
+      <Sidebar
+        collapsed={collapsed}
+        className={`vh-100 ${sidebarStyle.sideBg}`}
+      >
+        {collapsed ? (
+          <div className="d-flex flex-column align-items-center">
+            <p className="ms-3 mt-2 loginText ps-1">UMS</p>
+            <FaRegArrowAltCircleRight
+              size={25}
+              onClick={toggleSidebar}
+              className="mb-2 inputCursor"
+            />
           </div>
-          <Menu>
-            <MenuItem icon={<FaHome />} component={<Link to="/user" title="Home" />}>
-              Home
-            </MenuItem>
-            <MenuItem
-              icon={<TbUsersGroup />}
-              component={<Link to="/user/userList" title="Users"  />}
-            >
-              Users
-            </MenuItem>
-            <MenuItem
-              icon={<AiOutlineUserAdd />}
-              component={<Link to="/user/addUser" title="Add User"  />}
-            >
-              Add User
-            </MenuItem>
-            <MenuItem
-              icon={<CgProfile />}
-              component={<Link to="/user/profile" title="Profile"  />}
-            >
-              Profile
-            </MenuItem>
-          </Menu>
-        </Sidebar>
+        ) : (
+          <div className="d-flex justify-content-between">
+            <p className="ms-3 mt-2 loginText p-1">UMS</p>
+            <FaRegArrowAltCircleLeft
+              size={25}
+              onClick={toggleSidebar}
+              className="me-1 mt-3 inputCursor"
+            />
+          </div>
+        )}
+        <div className="text-center">
+          {userData?.image ? (
+            <img
+              src={userData?.image}
+              alt={userData?.username}
+              className="rounded-circle w-50"
+            />
+          ) : (
+            <img src={profile} alt="profile" className="rounded-circle w-50" />
+          )}
+          <h5>
+            {userData?.firstName} {userData?.lastName}
+          </h5>
+          <h6 className="bgText">Admin</h6>
+        </div>
+        <Menu>
+          <MenuItem
+            icon={<FaHome />}
+            component={<Link to="/user" title="Home" />}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            icon={<TbUsersGroup />}
+            component={<Link to="/user/userList" title="Users" />}
+          >
+            Users
+          </MenuItem>
+          <MenuItem
+            icon={<AiOutlineUserAdd />}
+            component={<Link to="/user/addUser" title="Add User" />}
+          >
+            Add User
+          </MenuItem>
+          <MenuItem
+            icon={<CgProfile />}
+            component={<Link to="/user/profile" title="Profile" />}
+          >
+            Profile
+          </MenuItem>
+        </Menu>
+      </Sidebar>
     </>
   );
 }

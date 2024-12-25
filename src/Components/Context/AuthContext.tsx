@@ -1,19 +1,10 @@
 import { jwtDecode } from "jwt-decode";
-import { createContext, ReactNode, useEffect, useState } from "react";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
-interface AuthContextType {
-  userData: User | null;
-  saveUserData: () => void;
-}
-
-interface AuthContextProviderProps {
-  children: ReactNode;
-}
+import { createContext, useEffect, useState } from "react";
+import {
+  AuthContextProviderProps,
+  AuthContextType,
+  User,
+} from "../Shared/Models/User";
 
 export let AuthContext = createContext<AuthContextType | null>(null);
 

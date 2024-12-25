@@ -3,15 +3,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-
-interface AddUserList {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  age: number;
-  birthDate: string;
-}
+import { UserList } from "../Shared/Models/User";
 
 export default function AddUser() {
   let [userData, setUserData]: any = useState({});
@@ -21,7 +13,7 @@ export default function AddUser() {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<AddUserList>({
+  } = useForm<UserList>({
     defaultValues: {
       firstName: userData.firstName,
       lastName: userData.lastName,
@@ -33,7 +25,7 @@ export default function AddUser() {
   });
   let navigate = useNavigate();
 
-  let onSubmit = async (data: AddUserList) => {
+  let onSubmit = async (data: UserList) => {
     try {
       if (id) {
         await axios.put(`https://dummyjson.com/users/${id}`, data);
@@ -193,7 +185,7 @@ export default function AddUser() {
               <div className="form-group">
                 <label htmlFor="exampleFormControlInput5">birth Date</label>
                 <input
-                  type="text"
+                  type={id ? "text" : "date"}
                   className="form-control"
                   id="exampleFormControlInput5"
                   aria-describedby="dateHelp"

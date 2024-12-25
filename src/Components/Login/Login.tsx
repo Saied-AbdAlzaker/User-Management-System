@@ -6,14 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { FaRegEye, FaRegEyeSlash, FaRegUser } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
-
-interface LoginForm {
-  username: string;
-  password: string;
-}
-interface AuthContextType {
-  saveUserData: () => void;
-}
+import { AuthContextType, LoginForm } from "../Shared/Models/User";
 
 export default function Login() {
   let { saveUserData } = useContext(AuthContext) as AuthContextType;
