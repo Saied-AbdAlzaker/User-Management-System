@@ -1,9 +1,9 @@
 import { jwtDecode } from "jwt-decode";
 import { createContext, useEffect, useState } from "react";
 import {
-  AuthContextProviderProps,
   AuthContextType,
-  User,
+  AuthContextProviderProps,
+  UserList,
 } from "../Shared/Models/User";
 
 export let AuthContext = createContext<AuthContextType | null>(null);
@@ -11,11 +11,11 @@ export let AuthContext = createContext<AuthContextType | null>(null);
 export default function AuthContextProvider({
   children,
 }: AuthContextProviderProps) {
-  let [userData, setUserData] = useState<User | null>(null);
+  let [userData, setUserData] = useState<UserList | null>(null);
   let saveUserData = () => {
     const encodedToken = localStorage.getItem("userToken");
     if (encodedToken) {
-      const decodedToken = jwtDecode<User>(encodedToken);
+      const decodedToken = jwtDecode<UserList>(encodedToken);
       setUserData(decodedToken);
     }
   };
