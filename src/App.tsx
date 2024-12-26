@@ -49,7 +49,8 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        // theme="colored"
+        theme="light"
         transition={Bounce}
       />
       <RouterProvider router={routes}></RouterProvider>
