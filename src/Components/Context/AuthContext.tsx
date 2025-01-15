@@ -11,7 +11,9 @@ export let AuthContext = createContext<AuthContextType | null>(null);
 export default function AuthContextProvider({
   children,
 }: AuthContextProviderProps) {
+  
   let [userData, setUserData] = useState<UserList | null>(null);
+
   let saveUserData = () => {
     const encodedToken = localStorage.getItem("userToken");
     if (encodedToken) {
