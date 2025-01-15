@@ -4,28 +4,28 @@ body {
   padding: 0px;
 }
 .loginText {
-  border-left: 5px solid rgba(237, 86, 132, 0.7);
+  border-left: 5px solid rgb(70, 53, 177, 0.8);
 }
 .css-1t8x7v1 > .ps-menu-button:hover {
-  background-color: rgb(237, 84, 130, 0.5) !important;
+  background-color:  rgb(70, 53, 177, 0.8) !important;
 }
 .bgText {
-  color: #ed5684;
+  color: #4635b1cc;
 }
 .inputCursor {
   cursor: pointer !important;
 }
 .btnColor {
   background-color: #fff;
-  color: #ed5684;
-  border: 1px solid #ed5684;
+  color: #4635b1cc;
+  border: 1px solid #4635b1cc;
 }
 .btnColor:hover{
-  background-color: #ed5684;
+  background-color: #4635b1cc;
   color: #fff;
 }
 .bgColor:hover{
-  color: #ed5684;
+  color: #4635b1cc;
 }
 input,
 .bgMain {

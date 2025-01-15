@@ -149,7 +149,7 @@ export default function Users() {
                 <TableBody>
                   {inputSearch
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((user,index) => {
+                    .map((user, index) => {
                       return (
                         <TableRow
                           hover
