@@ -62,7 +62,7 @@ export default function AddUser() {
 
   return (
     <>
-      <h3 className="fw-bold ">{id ? "Update User" : "Add User"}</h3>
+      <h3 className="fw-bold p-2">{id ? "Update User" : "Add User"}</h3>
       <hr />
       <div className="bg-white shadow p-5 m-2 rounded-5 w-75 mx-auto mt-5">
         <form onSubmit={handleSubmit(onSubmit)}>

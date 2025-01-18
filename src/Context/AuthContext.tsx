@@ -4,7 +4,7 @@ import {
   AuthContextType,
   AuthContextProviderProps,
   UserList,
-} from "../Shared/Models/User";
+} from "../Components/Shared/Models/User";
 
 export let AuthContext = createContext<AuthContextType | null>(null);
 

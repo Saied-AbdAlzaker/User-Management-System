@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { FaRegEye, FaRegEyeSlash, FaRegUser } from "react-icons/fa";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import { AuthContextType, LoginForm } from "../Shared/Models/User";
 
 export default function Login() {

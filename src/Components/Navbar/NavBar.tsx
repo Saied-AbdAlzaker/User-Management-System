@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { IoLogOutOutline } from "react-icons/io5";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";

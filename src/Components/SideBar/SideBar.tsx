@@ -11,7 +11,7 @@ import { TbUsersGroup } from "react-icons/tb";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import profile from "../../assets/images/profile.png";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import { AuthContextTypeUser } from "../Shared/Models/User";
 
 export default function SideBar() {
@@ -30,39 +30,66 @@ export default function SideBar() {
         className={`vh-100 ${sidebarStyle.sideBg}`}
       >
         {collapsed ? (
-          <div className="d-flex flex-column align-items-center">
-            <p className="ms-3 mt-2 loginText ps-1">UMS</p>
-            <FaRegArrowAltCircleRight
-              size={25}
-              onClick={toggleSidebar}
-              className="mb-2 inputCursor"
-            />
-          </div>
+          <>
+            <div className="d-flex flex-column align-items-center">
+              <p className="ms-3 mt-2 loginText ps-1">UMS</p>
+              <FaRegArrowAltCircleRight
+                size={25}
+                onClick={toggleSidebar}
+                className="mb-2 inputCursor"
+              />
+            </div>
+            <div className="text-center">
+              {userData?.image ? (
+                <img
+                  src={userData?.image}
+                  alt={userData?.username}
+                  className="rounded-circle w-50"
+                />
+              ) : (
+                <img
+                  src={profile}
+                  alt="profile"
+                  className="rounded-circle w-50"
+                />
+              )}
+              <h6>
+                {userData?.firstName} {userData?.lastName}
+              </h6>
+              <p className="bgText">Admin</p>
+            </div>
+          </>
         ) : (
-          <div className="d-flex justify-content-between">
-            <p className="ms-3 mt-2 loginText p-1">UMS</p>
-            <FaRegArrowAltCircleLeft
-              size={25}
-              onClick={toggleSidebar}
-              className="me-1 mt-3 inputCursor"
-            />
-          </div>
+          <>
+            <div className="d-flex justify-content-between">
+              <p className="ms-3 mt-2 loginText p-1">UMS</p>
+              <FaRegArrowAltCircleLeft
+                size={25}
+                onClick={toggleSidebar}
+                className="me-1 mt-3 inputCursor"
+              />
+            </div>
+            <div className="text-center">
+              {userData?.image ? (
+                <img
+                  src={userData?.image}
+                  alt={userData?.username}
+                  className="rounded-circle w-50"
+                />
+              ) : (
+                <img
+                  src={profile}
+                  alt="profile"
+                  className="rounded-circle w-50"
+                />
+              )}
+              <h5>
+                {userData?.firstName} {userData?.lastName}
+              </h5>
+              <h4 className="bgText">Admin</h4>
+            </div>
+          </>
         )}
-        <div className="text-center">
-          {userData?.image ? (
-            <img
-              src={userData?.image}
-              alt={userData?.username}
-              className="rounded-circle w-50"
-            />
-          ) : (
-            <img src={profile} alt="profile" className="rounded-circle w-50" />
-          )}
-          <h5>
-            {userData?.firstName} {userData?.lastName}
-          </h5>
-          <h6 className="bgText">Admin</h6>
-        </div>
         <Menu>
           <MenuItem
             icon={<FaHome />}
