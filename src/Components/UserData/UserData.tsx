@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserList } from "../Shared/Models/User";
 
-export default function AddUser() {
+export default function UserData() {
   let [userData, setUserData]: any = useState({});
   const { id } = useParams();
   let {
@@ -64,8 +64,18 @@ export default function AddUser() {
     <>
       <h3 className="fw-bold p-2">{id ? "Update User" : "Add User"}</h3>
       <hr />
-      <div className="bg-white shadow p-5 m-2 rounded-5 w-75 mx-auto mt-5">
+      <div className="bg-white shadow p-3 m-3 rounded-5 w-75 mx-auto mt-5 p-5 position-relative">
         <form onSubmit={handleSubmit(onSubmit)}>
+          {id ? (
+            <img
+              src={userData.image}
+              alt="profile"
+              className="rounded-circle imgProfile"
+            />
+          ) : (
+            ""
+          )}
+          <hr />
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">

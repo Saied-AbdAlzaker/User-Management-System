@@ -6,10 +6,10 @@ import MasterLayout from "./Components/MasterLayout/MasterLayout";
 import NotFound from "./Components/NotFound/NotFound";
 import Home from "./Components/Home/Home";
 import Users from "./Components/Users/Users";
-import AddUser from "./Components/AddUser/AddUser";
-import Profile from "./Components/Profile/Profile";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UserData from "./Components/UserData/UserData";
+import Profile from "./Components/Profile/Profile";
 
 function App() {
   let routes = createBrowserRouter([
@@ -30,8 +30,8 @@ function App() {
         { index: true, element: <Home /> },
         { path: "home", element: <Home /> },
         { path: "userList", element: <Users /> },
-        { path: "addUser", element: <AddUser /> },
-        { path: "addUser/:id", element: <AddUser /> },
+        { path: "userData", element: <UserData /> },
+        { path: "userData/:id", element: <UserData /> },
         { path: "profile", element: <Profile /> },
       ],
     },

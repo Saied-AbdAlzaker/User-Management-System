@@ -66,16 +66,13 @@ export default function Profile() {
   }, []);
   return (
     <>
-      <div className="">
+      <div className="vh-100">
         <div className="bg-white shadow p-3 m-3 rounded-5 w-75 mx-auto mt-5 p-5 position-relative">
           <form onSubmit={handleSubmit(onSubmit)}>
             <img
               src={userData.image}
               alt="profile"
               className="rounded-circle imgProfile"
-              {...register("image", {
-                required: "First Name Is Required",
-              })}
             />
             <hr />
             <div className="row">
@@ -85,7 +82,7 @@ export default function Profile() {
                   <input
                     type="text"
                     disabled
-                    className="form-control fw-bold bgText"
+                    className="form-control"
                     id="exampleFormControlInput1"
                     aria-describedby="textHelp"
                     placeholder="Enter Your First Name"
@@ -106,7 +103,7 @@ export default function Profile() {
                   <input
                     type="text"
                     disabled
-                    className="form-control fw-bold bgText"
+                    className="form-control"
                     id="exampleFormControlInput2"
                     aria-describedby="textHelp"
                     placeholder="Enter Your Last Name"
@@ -129,7 +126,7 @@ export default function Profile() {
                   <input
                     type="email"
                     disabled
-                    className="form-control fw-bold bgText"
+                    className="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter Your Email"
@@ -154,7 +151,7 @@ export default function Profile() {
                   <input
                     type="number"
                     disabled
-                    className="form-control fw-bold bgText"
+                    className="form-control"
                     id="exampleFormControlInput3"
                     aria-describedby="numberHelp"
                     placeholder="Enter Your Age"
@@ -183,7 +180,7 @@ export default function Profile() {
                   <input
                     type="phone"
                     disabled
-                    className="form-control fw-bold bgText"
+                    className="form-control"
                     id="exampleFormControlInput4"
                     aria-describedby="phoneHelp"
                     placeholder="Enter Your Phone Number"
@@ -208,7 +205,7 @@ export default function Profile() {
                   <input
                     type="text"
                     disabled
-                    className="form-control fw-bold bgText"
+                    className="form-control"
                     id="exampleFormControlInput5"
                     aria-describedby="dateHelp"
                     placeholder="ex: 1982-11-6"
@@ -224,9 +221,6 @@ export default function Profile() {
                 </div>
               </div>
             </div>
-            {/* <div className="text-center mt-3">
-            <button className="btn btnColor w-50">Update</button>
-          </div> */}
           </form>
         </div>
       </div>

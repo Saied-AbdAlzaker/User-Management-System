@@ -22,12 +22,12 @@ export default function SideBar() {
   };
 
   let { userData } = useContext(AuthContext) as AuthContextTypeUser;
-
+ 
   return (
     <>
       <Sidebar
         collapsed={collapsed}
-        className={`vh-100 ${sidebarStyle.sideBg}`}
+        className={`h-100 ${sidebarStyle.sideBg}`}
       >
         {collapsed ? (
           <>
@@ -86,7 +86,7 @@ export default function SideBar() {
               <h5>
                 {userData?.firstName} {userData?.lastName}
               </h5>
-              <h4 className="bgText">Admin</h4>
+              <h4 className="bgText">{userData?.role}</h4>
             </div>
           </>
         )}
@@ -105,13 +105,13 @@ export default function SideBar() {
           </MenuItem>
           <MenuItem
             icon={<AiOutlineUserAdd />}
-            component={<Link to="/user/addUser" title="Add User" />}
+            component={<Link to="/user/userData" title="Add User" />}
           >
             Add User
           </MenuItem>
           <MenuItem
             icon={<CgProfile />}
-            component={<Link to="/user/profile" title="Profile" />}
+            component={<Link to={`/user/profile`} title="Profile" />}
           >
             Profile
           </MenuItem>

@@ -33,6 +33,7 @@ export default function Users() {
       let response = await axios.get("https://dummyjson.com/users");
       setUsers(response?.data?.users);
       setInputSearch(response?.data?.users);
+      console.log(response?.data?.users);
       setLoading(false);
     } catch (error) {
       toast.error("Api Failed Fetch");
@@ -70,11 +71,11 @@ export default function Users() {
   // Add User
   let navigate = useNavigate();
   let navigateToAddUser = () => {
-    navigate("/user/addUser");
+    navigate("/user/userData");
   };
   // Update User
   let navigateToUpdateUser = (userId: number) => {
-    navigate(`/user/addUser/${userId}`);
+    navigate(`/user/userData/${userId}`);
   };
 
   // Pagination

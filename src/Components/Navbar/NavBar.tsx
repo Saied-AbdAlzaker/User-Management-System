@@ -29,7 +29,7 @@ export default function NavBar() {
             <Nav className="ms-auto">
               <Avatar alt="Remy Sharp" src={userData?.image} />
               <Nav.Link>
-                Welcome <span className="bgText">{userData?.firstName}</span>
+                Welcome <span className="bgText">{userData?.username}</span>
               </Nav.Link>
 
               <button className="btn btnColor" onClick={logOut}>
